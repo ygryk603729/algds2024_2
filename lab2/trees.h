@@ -13,6 +13,9 @@ typedef struct Node {
 } Node;
 
 Node* createNode(int key, int priority);
+
+int getNodeValue(struct Node* node);
+
 void printTree(Node* root, int space);
 
 void rotateRight(Node* node);

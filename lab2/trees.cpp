@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-Node* ñreateNode(int key, int priority) {
+Node* CreateNode(int key, int priority) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     newNode->key = key;
     newNode->priority = priority;
@@ -12,6 +12,10 @@ Node* ñreateNode(int key, int priority) {
     newNode->right = NULL;
     newNode->parent = NULL;
     return newNode;
+}
+
+int getNodeValue(struct Node* node) {
+    return node->key;
 }
 
 void printTree(Node* root, int space) {
@@ -76,7 +80,7 @@ void rotateLeft(Node* node) {
 }
 
 void insert(Node** root, int key, int priority) {
-    Node* newNode = ñreateNode(key, priority);
+    Node* newNode = ï¿½reateNode(key, priority);
     if (*root == NULL) {
         *root = newNode;
         return;
@@ -113,7 +117,7 @@ void insert(Node** root, int key, int priority) {
 }
 
 void mergeTrees(Node** t1, Node** t2) {
-    // Ñëèÿíèå äâóõ treaps
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ treaps
     Node* newRoot = NULL;
     while (*t1 && *t2) {
         if ((*t1)->priority > (*t2)->priority) {
@@ -175,7 +179,7 @@ void AnswerTree(Node* root, int* result) {
         return;
     }
 
-    // Äîáàâëÿåì äàííûå òåêóùåãî óçëà ê ðåçóëüòàòó
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     *result = *result * 10 + root->key;
 
     if (root->left != NULL) {

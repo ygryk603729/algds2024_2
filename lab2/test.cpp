@@ -69,7 +69,7 @@ TEST(MergeTest, 1) {
 }
 
 TEST(High_priotity_case, 1) {
-    //случай с приоритетом выше чем у корня
+    //пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
     Node* treap1 = NULL;
 
     insert(&treap1, 5, 10);
@@ -81,5 +81,39 @@ TEST(High_priotity_case, 1) {
     int a = 0;
     AnswerTree(treap1, &a);
     EXPECT_EQ(5, a);
+    EXPECT_TRUE(true);
+}
+
+TEST(ValueTest, 1) {
+    Node* treap1 = NULL;
+
+    insert(&treap1, 5, 10);
+    insert(&treap1, 2, 8);
+    insert(&treap1, 8, 7);
+    insert(&treap1, 1, 6);
+
+    printf("Test 5. Tree:");
+    printTree(treap1, 0);
+
+    EXPECT_EQ(2, getNodeValue(treap1->left));
+    EXPECT_TRUE(true);
+}
+
+TEST(ValueTest, 2) {
+    Node* treap1 = NULL;
+    Node* treap2 = NULL;
+
+    insert(&treap1, 1, 10);
+    insert(&treap1, 3, 8);
+
+    insert(&treap2, 6, 3);
+    insert(&treap2, 7, 2);
+    insert(&treap2, 9, 1);
+
+    mergeTrees(&treap1, &treap2);
+    printf("Test 6. Merged tree:");
+    printTree(treap1, 0);
+
+    EXPECT_EQ(7, getNodeValue(treap1->right->right->right));
     EXPECT_TRUE(true);
 }
